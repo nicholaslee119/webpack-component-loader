@@ -1,0 +1,1 @@
+<p> I am component A</p>
