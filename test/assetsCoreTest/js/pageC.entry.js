@@ -7,9 +7,6 @@ function D () {
 function B () {
   /* I came from B*/
 }
-function D () {
-  /* I came from D*/
-}
 function C () {
   /* I came from C*/
 }
