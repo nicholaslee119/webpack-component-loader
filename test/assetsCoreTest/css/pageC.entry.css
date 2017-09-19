@@ -1,8 +1,14 @@
 .componentA {
     /* I come from A*/
 }
+.componentD {
+    /* I come from D*/
+}
 .componentB {
     /* I came from B*/
+}
+.componentD {
+    /* I come from D*/
 }
 .pageC {
     /* I come from C*/
