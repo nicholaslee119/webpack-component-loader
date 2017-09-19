@@ -1,7 +1,9 @@
 function A () {
   /* I came from A*/
-}function B () {
+}
+function B () {
   /* I came from B*/
-}function C () {
+}
+function C () {
   /* I came from C*/
 }

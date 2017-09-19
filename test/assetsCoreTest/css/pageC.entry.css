@@ -1,7 +1,9 @@
 .componentA {
     /* I come from A*/
-}.componentB {
+}
+.componentB {
     /* I came from B*/
-}.pageC {
+}
+.pageC {
     /* I come from C*/
 }

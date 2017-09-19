@@ -1,1 +1,1 @@
-import './c.page/c.page.tpl';
+import './pageC/pageC.tpl';
