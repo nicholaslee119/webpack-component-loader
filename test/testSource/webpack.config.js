@@ -25,6 +25,7 @@ module.exports = {
         loader : 'webpack-component-loader',
         query  : {
           extractor : templateExtractor,
+          ext: '.tpl',
           srcPath : path.join(__dirname, '.'),
           builtJSPath : path.join(__dirname, '../assets/js'),
           builtCSSPath : path.join(__dirname, '../assets/css'),

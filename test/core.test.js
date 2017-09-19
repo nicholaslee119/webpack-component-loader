@@ -15,7 +15,7 @@ function templateExtractor (source) {
 describe('core test', function() {
   it('smarty template test', function(){
     const pageTpl = fs.readFileSync(path.join(__dirname, './testSource/c.page/c.page.tpl'), 'utf8');
-    core(pageTpl, templateExtractor,
+    core(pageTpl, templateExtractor, '.tpl',
       path.join(__dirname, './testSource'),
       path.join(__dirname, './assetsCoreTest/js'),
       path.join(__dirname, './assetsCoreTest/css'),
