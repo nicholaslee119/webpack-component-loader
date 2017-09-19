@@ -28,7 +28,7 @@ module.exports = {
           srcPath : path.join(__dirname, '.'),
           builtJSPath : path.join(__dirname, '../assets/js'),
           builtCSSPath : path.join(__dirname, '../assets/css'),
-          builtTemplatePath : path.join(__dirname, '../assets//templates'),
+          builtTemplatePath : path.join(__dirname, '../assets/templates'),
         },
       },
     ],
