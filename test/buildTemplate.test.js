@@ -1,11 +1,14 @@
-import buildTemplate from '../lib/buildTemplate';
+import fs from 'fs';
+import path from 'path';
+import klawSync from 'klaw-sync';
 
+import buildTemplate from '../lib/buildTemplate';
 import buildOptionNormal from './buildOption.normal';
 
 
 describe('test buildTemplate', function() {
 
-  it('normal', function(done) {
+  it('normal', function() {
 
     const normalComponents =
       [
@@ -38,10 +41,10 @@ describe('test buildTemplate', function() {
           "name": "pageC"
         }
       ];
-    buildTemplate(normalComponents, buildOptionNormal)
-    done();
+    buildTemplate(normalComponents, buildOptionNormal);
+    const dirs = klawSync(path.join(__dirname, './assetsCoreTest/templates'), {nodir: true});
+    expect(dirs).toHaveLength(normalComponents.length);
   })
-
 })
 
 
