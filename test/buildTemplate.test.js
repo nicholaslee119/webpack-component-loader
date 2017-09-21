@@ -5,7 +5,6 @@ import klawSync from 'klaw-sync';
 import buildTemplate from '../lib/buildTemplate';
 import buildOptionNormal from './buildOption.normal';
 
-
 describe('test buildTemplate', function() {
 
   it('normal', function() {

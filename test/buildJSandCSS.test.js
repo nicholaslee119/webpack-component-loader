@@ -3,6 +3,7 @@ import path from 'path';
 
 import buildJSandCSS from '../lib/buildJSandCSS';
 import buildOptionNormal from '../test/buildOption.normal';
+import injector from './injector.normal';
 
 describe('test buildJSandCSS', function(){
 
@@ -38,7 +39,7 @@ describe('test buildJSandCSS', function(){
           "name": "pageC"
         }
       ];
-    buildJSandCSS(normalComponents, buildOptionNormal);
+    buildJSandCSS(normalComponents, injector, buildOptionNormal);
     const builtCSS = klawSync(path.join(__dirname, './assetsCoreTest/css'), {nodir: true});
     const builtJS = klawSync(path.join(__dirname, './assetsCoreTest/js'), {nodir: true});
     expect(builtJS).toHaveLength(1);

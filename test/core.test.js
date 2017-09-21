@@ -3,11 +3,12 @@ import path from 'path';
 import core from '../lib/core';
 
 import extractor from './extractor.normal';
+import injector from './injector.normal';
 
 describe('core test', function() {
   it('smarty template test', function(){
     const pageTpl = fs.readFileSync(path.join(__dirname, './testSource/pageC/pageC.tpl'), 'utf8');
-    core(pageTpl, extractor, '.tpl',
+    core(pageTpl, extractor, injector, '.tpl',
       path.join(__dirname, './testSource'),
       path.join(__dirname, './assetsCoreTest/js'),
       path.join(__dirname, './assetsCoreTest/css'),

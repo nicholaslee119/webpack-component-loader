@@ -1,5 +1,7 @@
 import path from 'path';
 
+import injector from '../injector.normal';
+
 function templateExtractor (source) {
   var included = source.match(/\'.*\'/g);
   if(!included) return null;
@@ -25,6 +27,7 @@ module.exports = {
         loader : 'webpack-component-loader',
         query  : {
           extractor : templateExtractor,
+          injector : injector,
           ext: '.tpl',
           srcPath : path.join(__dirname, '.'),
           builtJSPath : path.join(__dirname, '../assets/js'),
