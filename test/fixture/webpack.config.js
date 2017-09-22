@@ -13,7 +13,7 @@ function templateExtractor (source) {
 }
 
 module.exports = {
-  entry: './test/testSource/entry.js',
+  entry: './test/fixture/entry.js',
   resolveLoader: {
     alias: {
       'webpack-component-loader': path.join(__dirname, '../../index.js'),

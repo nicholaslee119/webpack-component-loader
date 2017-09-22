@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 
-import config from './testSource/webpack.config';
+import config from './fixture/webpack.config';
 
 describe('test in webpack', function () {
   it('test in webpack', function(done) {
