@@ -1,9 +1,15 @@
 import klawSync from 'klaw-sync';
 import path from 'path';
+import fsx from 'fs-extra';
 
 import buildJSandCSS from '../lib/buildJSandCSS';
 import buildOptionNormal from '../test/util/buildOption.normal';
 import injector from './util/injector.normal';
+
+function clearifyBuiltAssets () {
+  fsx.removeSync(path.join(__dirname, './assetsCoreTest/css'));
+  fsx.removeSync(path.join(__dirname, './assetsCoreTest/js'));
+}
 
 describe('test buildJSandCSS', function(){
 
@@ -39,11 +45,38 @@ describe('test buildJSandCSS', function(){
           "name": "pageC"
         }
       ];
+    clearifyBuiltAssets()
     buildJSandCSS(normalComponents, injector, buildOptionNormal);
     const builtCSS = klawSync(path.join(__dirname, './assetsCoreTest/css'), {nodir: true});
     const builtJS = klawSync(path.join(__dirname, './assetsCoreTest/js'), {nodir: true});
     expect(builtJS).toHaveLength(1);
     expect(builtCSS).toHaveLength(1);
+  })
+
+  it('inexistent component', function() {
+    const inexistentComponents =
+      [
+        {
+          "root": "",
+          "dir": "include",
+          "base": "noA.tpl",
+          "ext": ".tpl",
+          "name": "noA"
+        },
+        {
+          "root": "/",
+          "dir": "",
+          "base": "noB.tpl",
+          "ext": ".tpl",
+          "name": "noB"
+        }
+      ];
+    clearifyBuiltAssets();
+    buildJSandCSS(inexistentComponents, injector, buildOptionNormal);
+    const builtCSS = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest/css'));
+    const builtJS = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest/js'));
+    expect(builtJS).toBeFalsy();
+    expect(builtCSS).toBeFalsy();
   })
 
 })
