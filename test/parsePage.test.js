@@ -2,8 +2,8 @@ import parsePage from '../lib/parsePage';
 import path from 'path';
 import fs from 'fs';
 
-import buildOptionNormal from './buildOption.normal';
-import extractor from './extractor.normal';
+import buildOptionNormal from './util/buildOption.normal';
+import extractor from './util/extractor.normal';
 
 describe('test parsePage', function() {
   it('normal', function() {

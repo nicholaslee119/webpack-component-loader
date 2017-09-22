@@ -1,6 +1,6 @@
 import path from 'path';
 
-import injector from '../injector.normal';
+import injector from '../util/injector.normal';
 
 function templateExtractor (source) {
   var included = source.match(/\'.*\'/g);

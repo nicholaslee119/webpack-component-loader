@@ -3,7 +3,7 @@ import path from 'path';
 import klawSync from 'klaw-sync';
 
 import buildTemplate from '../lib/buildTemplate';
-import buildOptionNormal from './buildOption.normal';
+import buildOptionNormal from './util/buildOption.normal';
 
 describe('test buildTemplate', function() {
 

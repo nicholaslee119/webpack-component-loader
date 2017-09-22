@@ -2,8 +2,8 @@ import klawSync from 'klaw-sync';
 import path from 'path';
 
 import buildJSandCSS from '../lib/buildJSandCSS';
-import buildOptionNormal from '../test/buildOption.normal';
-import injector from './injector.normal';
+import buildOptionNormal from '../test/util/buildOption.normal';
+import injector from './util/injector.normal';
 
 describe('test buildJSandCSS', function(){
 

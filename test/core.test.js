@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import core from '../lib/core';
 
-import extractor from './extractor.normal';
-import injector from './injector.normal';
+import extractor from './util/extractor.normal';
+import injector from './util/injector.normal';
 
 describe('core test', function() {
   it('smarty template test', function(){
