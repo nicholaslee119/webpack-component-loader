@@ -11,7 +11,7 @@ function clearBuild () {
 }
 
 describe('core test', function() {
-  it('smarty template test', function(){
+  it('build should success', function(){
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     core(pageTpl, extractor, injector, '.tpl',
@@ -21,6 +21,8 @@ describe('core test', function() {
       path.join(__dirname, './assetsCoreTest/templates'),
       path.join(__dirname, './fixture/pageC/pageC.tpl')
     )
+    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
+    expect(dirs).toBeTruthy();
   });
 
   it('unvalidate path should not be passed', function(){
@@ -37,6 +39,32 @@ describe('core test', function() {
     expect(dirs).toBeFalsy();
   });
 
+  it('unvalidate source should not be passed', function(){
+    clearBuild();
+    core('', extractor, injector, '.tpl',
+      path.join(__dirname, './fixture'),
+      path.join(__dirname, './assetsCoreTest/js'),
+      path.join(__dirname, './assetsCoreTest/css'),
+      path.join(__dirname, './assetsCoreTest/templates'),
+      path.join(__dirname, './fixture/pageC/pageC.tpl')
+    );
+    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
+    expect(dirs).toBeFalsy();
+  });
+
+  it('unvalidate extractor or injector should not be passed', function(){
+    clearBuild();
+    const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
+    core(pageTpl, {}, [], '.tpl',
+      path.join(__dirname, './fixture'),
+      path.join(__dirname, './assetsCoreTest/js'),
+      path.join(__dirname, './assetsCoreTest/css'),
+      path.join(__dirname, './assetsCoreTest/templates'),
+      path.join(__dirname, './fixture/pageC/pageC.tpl')
+    );
+    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
+    expect(dirs).toBeFalsy();
+  });
 
 })
 
