@@ -10,6 +10,12 @@ describe('test parsePage', function() {
     const source = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     const components = parsePage(source, extractor, buildOptionNormal);
     expect(components).toHaveLength(4);
+  });
+
+  it('should stop with something wrong with extractor', function() {
+    const source = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
+    const components = parsePage(source, function() { throw 'the extractor is down!'}, buildOptionNormal);
+    expect(components).toHaveLength(0);
   })
 })
 
