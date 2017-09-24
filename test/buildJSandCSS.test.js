@@ -7,8 +7,7 @@ import buildOptionNormal from '../test/util/buildOption.normal';
 import injector from './util/injector.normal';
 
 function clearifyBuiltAssets () {
-  fsx.removeSync(path.join(__dirname, './assetsCoreTest/css'));
-  fsx.removeSync(path.join(__dirname, './assetsCoreTest/js'));
+  fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
 }
 
 describe('test buildJSandCSS', function(){
@@ -45,12 +44,13 @@ describe('test buildJSandCSS', function(){
           "name": "pageC"
         }
       ];
-    clearifyBuiltAssets()
+    clearifyBuiltAssets();
     buildJSandCSS(normalComponents, injector, buildOptionNormal);
     const builtCSS = klawSync(path.join(__dirname, './assetsCoreTest/css'), {nodir: true});
     const builtJS = klawSync(path.join(__dirname, './assetsCoreTest/js'), {nodir: true});
     expect(builtJS).toHaveLength(1);
     expect(builtCSS).toHaveLength(1);
+    clearifyBuiltAssets();
   })
 
   it('inexistent component', function() {
@@ -77,6 +77,7 @@ describe('test buildJSandCSS', function(){
     const builtJS = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest/js'));
     expect(builtJS).toBeFalsy();
     expect(builtCSS).toBeFalsy();
+    clearifyBuiltAssets();
   })
 
 })

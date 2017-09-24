@@ -6,7 +6,7 @@ import buildOptionNormal from './util/buildOption.normal';
 import extractor from './util/extractor.normal';
 
 describe('test parsePage', function() {
-  it('normal', function() {
+  it('should build successfully', function() {
     const source = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     const components = parsePage(source, extractor, buildOptionNormal);
     expect(components).toHaveLength(4);
@@ -16,7 +16,7 @@ describe('test parsePage', function() {
     const source = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     const components = parsePage(source, function() { throw 'the extractor is down!'}, buildOptionNormal);
     expect(components).toHaveLength(0);
-  })
+  });
 })
 
 

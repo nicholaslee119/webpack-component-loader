@@ -40,9 +40,10 @@ describe('test buildTemplate', function() {
           "name": "pageC"
         }
       ];
-    fsx.removeSync(path.join(__dirname, './assetsCoreTest/templates'));
+    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
     buildTemplate(normalComponents, buildOptionNormal);
-    const dirs = klawSync(path.join(__dirname, './assetsCoreTest/templates'), {nodir: true});
+    const dirs = klawSync(path.join(__dirname, './assetsCoreTest'), {nodir: true});
+    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
     expect(dirs).toHaveLength(normalComponents.length);
   });
 
@@ -67,6 +68,7 @@ describe('test buildTemplate', function() {
 
     function errorHandler (e) {
       expect(e).toBeDefined();
+      fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
       done();
     }
     buildTemplate(inexistentComponents, buildOptionNormal, errorHandler);
@@ -76,16 +78,18 @@ describe('test buildTemplate', function() {
     const emptyComponents = [];
     fsx.removeSync(path.join(__dirname, './assetsCoreTest/templates'));
     buildTemplate(emptyComponents, buildOptionNormal);
-    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest/templates'));
+    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
+    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
     expect(dirs).toBeFalsy();
   });
 
 
   it('on-array component', function() {
     const noArray = 'NOT A ARRAY';
-    fsx.removeSync(path.join(__dirname, './assetsCoreTest/templates'));
+    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
     buildTemplate(noArray, buildOptionNormal);
-    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest/templates'));
+    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
+    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
     expect(dirs).toBeFalsy();
   })
 
@@ -108,9 +112,10 @@ describe('test buildTemplate', function() {
     ];
     function errorHandler (e) {
       expect(e).toBeDefined();
+      fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
       done();
     }
-    fsx.removeSync(path.join(__dirname, './assetsCoreTest/templates'));
+    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
     buildTemplate(brokenComponents, buildOptionNormal, errorHandler);
   })
 
