@@ -12,11 +12,17 @@ describe('test parsePage', function() {
     expect(components).toHaveLength(4);
   });
 
-  it('should stop with something wrong with extractor', function() {
+  it('should throw error when something wrong with extractor', function() {
     const source = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
-    const components = parsePage(source, function() { throw 'the extractor is down!'}, buildOptionNormal);
-    expect(components).toHaveLength(0);
+    expect(()=>{
+      parsePage(source, function() { throw 'the extractor is down!'}, buildOptionNormal)
+    }).toThrowError('[webpack-component-loader]: something wrong with the extractor: the extractor is down!');
+  });
+
+  it('should throw error when something wrong with extractor', function() {
+    const source = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
+    expect(()=>{
+      parsePage(source, function() { return null}, buildOptionNormal)
+    }).toThrowError('[webpack-component-loader]: the result of extractor is not an array');
   });
 })
-
-

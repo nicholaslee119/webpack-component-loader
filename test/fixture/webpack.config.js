@@ -1,16 +1,7 @@
 import path from 'path';
 
-import injector from '../util/injector.normal';
-
-function templateExtractor (source) {
-  var included = source.match(/\'.*\'/g);
-  if(!included) return null;
-  var res = [];
-  included.forEach(function (element) {
-    res.push(element.slice(1,element.length-1));
-  })
-  return res;
-}
+import injector from '../util/injector.normal'
+import extractor from '../util/extractor.normal';
 
 module.exports = {
   entry: './test/fixture/entry.js',
@@ -26,7 +17,7 @@ module.exports = {
         exclude: /(node_modules)/,
         loader : 'webpack-component-loader',
         query  : {
-          extractor : templateExtractor,
+          extractor : extractor,
           injector : injector,
           ext: '.tpl',
           srcPath : path.join(__dirname, '.'),
