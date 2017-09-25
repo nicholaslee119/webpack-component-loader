@@ -28,42 +28,63 @@ describe('core test', function() {
   it('unvalidate path should not be passed', function(){
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
-    core(pageTpl, extractor, injector, '.tpl',
-      path.join(__dirname, './!!!!'),
-      path.join(__dirname, '..../assetsCoreTest/js'),
-      [1,24,22],
-      path.join(__dirname, './assetsCoreTest/templates'),
-      ''
+    expect(() => {
+      core(pageTpl, extractor, injector, '.tpl',
+        path.join(__dirname, './!!!!'),
+        path.join(__dirname, '..../assetsCoreTest/js'),
+        [1,24,22],
+        path.join(__dirname, './assetsCoreTest/templates'),
+        '')
+    }).toThrowError(
+      `[webpack-component-loader]: ${path.join(__dirname, './!!!!')} is not validate path`
     );
-    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
-    expect(dirs).toBeFalsy();
   });
 
   it('unvalidate source should not be passed', function(){
     clearBuild();
-    core('', extractor, injector, '.tpl',
-      path.join(__dirname, './fixture'),
-      path.join(__dirname, './assetsCoreTest/js'),
-      path.join(__dirname, './assetsCoreTest/css'),
-      path.join(__dirname, './assetsCoreTest/templates'),
-      path.join(__dirname, './fixture/pageC/pageC.tpl')
+    expect(()=>{
+      core('', extractor, injector, '.tpl',
+        path.join(__dirname, './fixture'),
+        path.join(__dirname, './assetsCoreTest/js'),
+        path.join(__dirname, './assetsCoreTest/css'),
+        path.join(__dirname, './assetsCoreTest/templates'),
+        path.join(__dirname, './fixture/pageC/pageC.tpl')
+      );
+    }).toThrowError(
+      '[webpack-component-loader]: something wrong with the source'
     );
-    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
-    expect(dirs).toBeFalsy();
   });
 
-  it('unvalidate extractor or injector should not be passed', function(){
+  it('unvalidate extractor should not be passed', function(){
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
-    core(pageTpl, {}, [], '.tpl',
-      path.join(__dirname, './fixture'),
-      path.join(__dirname, './assetsCoreTest/js'),
-      path.join(__dirname, './assetsCoreTest/css'),
-      path.join(__dirname, './assetsCoreTest/templates'),
-      path.join(__dirname, './fixture/pageC/pageC.tpl')
+    expect(()=>{
+      core(pageTpl, {}, injector, '.tpl',
+        path.join(__dirname, './fixture'),
+        path.join(__dirname, './assetsCoreTest/js'),
+        path.join(__dirname, './assetsCoreTest/css'),
+        path.join(__dirname, './assetsCoreTest/templates'),
+        path.join(__dirname, './fixture/pageC/pageC.tpl')
+      )
+    }).toThrowError(
+      '[webpack-component-loader]: something wrong with the extractor or injector'
     );
-    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
-    expect(dirs).toBeFalsy();
+  });
+
+  it('unvalidate injector should not be passed', function(){
+    clearBuild();
+    const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
+    expect(()=>{
+      core(pageTpl, extractor, {}, '.tpl',
+        path.join(__dirname, './fixture'),
+        path.join(__dirname, './assetsCoreTest/js'),
+        path.join(__dirname, './assetsCoreTest/css'),
+        path.join(__dirname, './assetsCoreTest/templates'),
+        path.join(__dirname, './fixture/pageC/pageC.tpl')
+      )
+    }).toThrowError(
+      '[webpack-component-loader]: something wrong with the extractor or injector'
+    );
   });
 
 })
