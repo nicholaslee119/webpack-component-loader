@@ -12,7 +12,7 @@ function clearifyBuiltAssets () {
 
 describe('test buildJSandCSS', function(){
 
-  it('normal', function(){
+  it('should built successfully with normal input', function(){
     const normalComponents =
       [
         {
@@ -53,7 +53,7 @@ describe('test buildJSandCSS', function(){
     clearifyBuiltAssets();
   })
 
-  it('inexistent component', function() {
+  it('should throw error when component is not exist', function() {
     const inexistentComponents =
       [
         {
@@ -71,13 +71,9 @@ describe('test buildJSandCSS', function(){
           "name": "noB"
         }
       ];
-    clearifyBuiltAssets();
-    buildJSandCSS(inexistentComponents, injector, buildOptionNormal);
-    const builtCSS = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest/css'));
-    const builtJS = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest/js'));
-    expect(builtJS).toBeFalsy();
-    expect(builtCSS).toBeFalsy();
-    clearifyBuiltAssets();
+    expect(()=>{
+      buildJSandCSS(inexistentComponents, injector, buildOptionNormal);
+    }).toThrowError(`[webpack-component-loader]: ${inexistentComponents[0].name} is not exist`);
   })
 
 })
