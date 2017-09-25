@@ -8,7 +8,7 @@ import buildOptionNormal from './util/buildOption.normal';
 
 describe('test buildTemplate', function() {
 
-  it('normal', function() {
+  it('should built successfully', function() {
     const normalComponents =
       [
         {
@@ -47,7 +47,7 @@ describe('test buildTemplate', function() {
     expect(dirs).toHaveLength(normalComponents.length);
   });
 
-  it('inexistent component', function(done) {
+  it('should throw error when component is not exist', function() {
     const inexistentComponents =
       [
         {
@@ -66,36 +66,21 @@ describe('test buildTemplate', function() {
         }
       ];
 
-    function errorHandler (e) {
-      expect(e).toBeDefined();
-      fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
-      done();
-    }
-    buildTemplate(inexistentComponents, buildOptionNormal, errorHandler);
+    expect(()=>{
+      buildTemplate(inexistentComponents, buildOptionNormal);
+    }).toThrowError(`[webpack-component-loader]: something wrong with building Template: ${inexistentComponents[0].name} is non existence`);
   })
 
-  it('empty component', function() {
-    const emptyComponents = [];
-    fsx.removeSync(path.join(__dirname, './assetsCoreTest/templates'));
-    buildTemplate(emptyComponents, buildOptionNormal);
-    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
-    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
-    expect(dirs).toBeFalsy();
-  });
-
-
-  it('on-array component', function() {
+  it('should throw error when on-array component was passed in', function() {
     const noArray = 'NOT A ARRAY';
-    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
-    buildTemplate(noArray, buildOptionNormal);
-    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
-    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
-    expect(dirs).toBeFalsy();
+    expect(()=>{
+      buildTemplate(noArray, buildOptionNormal);
+    }).toThrowError('[webpack-component-loader]: something wrong with building Template: components is not an array')
   })
 
-
-  it('broken component', function(done) {
+  it('should throw error when was passed in a broken component', function() {
     const brokenComponents = [
+      1,2,
       {
         "dir": "include",
         "base": "noA.tpl",
@@ -110,13 +95,9 @@ describe('test buildTemplate', function() {
       },
       {}
     ];
-    function errorHandler (e) {
-      expect(e).toBeDefined();
-      fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
-      done();
-    }
-    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
-    buildTemplate(brokenComponents, buildOptionNormal, errorHandler);
+    expect(()=>{
+      buildTemplate(brokenComponents, buildOptionNormal);
+    }).toThrow();
   })
 
 })
