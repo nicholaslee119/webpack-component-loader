@@ -1,3 +1,7 @@
+[![NPM][npm]][npm-url]
+[![Deps][deps]][deps-url]
+[![Coverage][cover]][cover-url]
+
 # webpack-component-loader
 A webpack loader to componentify CSS/JS/HTML without framework
 
@@ -63,3 +67,14 @@ you can see more detail under examples/
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
+
+
+
+[npm]: https://img.shields.io/npm/v/webpack-component-loader.svg
+[npm-url]: https://www.npmjs.com/package/webpack-component-loader
+
+[deps]: https://david-dm.org/nicholaslee119/webpack-component-loader.svg
+[deps-url]: https://david-dm.org/nicholaslee119/webpack-component-loader
+
+[cover]: https://coveralls.io/repos/github/nicholaslee119/webpack-component-loader/badge.svg?branch=master
+[cover-url]: https://coveralls.io/github/nicholaslee119/webpack-component-loader?branch=master
