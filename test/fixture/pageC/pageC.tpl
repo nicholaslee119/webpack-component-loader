@@ -1,6 +1,5 @@
 <html>
   <head>
-    {* css insertion *}
   </head>
 
   <body>
@@ -8,7 +7,5 @@
 
     <div>{include file='componentB.tpl'}</div>
   </body>
-
-  {* javaScript insertion *}
 
 </html>

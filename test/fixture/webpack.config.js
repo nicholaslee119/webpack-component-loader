@@ -1,7 +1,6 @@
 import path from 'path';
 
-import injector from '../util/injector.normal'
-import extractor from '../util/extractor.normal';
+import {injector, extractor} from 'webpack-component-loader-smarty-parser';
 
 module.exports = {
   entry: './test/fixture/entry.js',

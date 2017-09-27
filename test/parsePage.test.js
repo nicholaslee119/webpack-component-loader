@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 
 import buildOptionNormal from './util/buildOption.normal';
-import extractor from './util/extractor.normal';
+import {extractor} from 'webpack-component-loader-smarty-parser';
 
 describe('test parsePage', function() {
   it('should build successfully', function() {

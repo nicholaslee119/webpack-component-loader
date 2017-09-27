@@ -3,8 +3,7 @@ import path from 'path';
 import core from '../lib/core';
 import fsx from 'fs-extra';
 
-import extractor from './util/extractor.normal';
-import injector from './util/injector.normal';
+import {injector, extractor} from 'webpack-component-loader-smarty-parser';
 
 function clearBuild () {
   fsx.removeSync(path.join(__dirname, './assetsCoreTest'));

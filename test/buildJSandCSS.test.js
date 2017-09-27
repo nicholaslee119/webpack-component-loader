@@ -4,7 +4,7 @@ import fsx from 'fs-extra';
 
 import buildJSandCSS from '../lib/buildJSandCSS';
 import buildOptionNormal from '../test/util/buildOption.normal';
-import injector from './util/injector.normal';
+import {injector} from 'webpack-component-loader-smarty-parser';
 
 function clearifyBuiltAssets () {
   fsx.removeSync(path.join(__dirname, './assetsCoreTest'));

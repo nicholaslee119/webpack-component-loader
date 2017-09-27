@@ -1,6 +1,6 @@
 {
   "name": "webpack-component-loader",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A webpack loader to componentify CSS/JS/HTML without framework",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,8 @@
     "jest": "^20.0.4",
     "klaw-sync": "^3.0.0",
     "regenerator-runtime": "^0.11.0",
-    "webpack": "^3.5.6"
+    "webpack": "^3.5.6",
+    "webpack-component-loader-smarty-parser": "0.0.2"
   },
   "dependencies": {
     "jsmart": "^2.15.1"

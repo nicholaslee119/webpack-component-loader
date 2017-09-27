@@ -1,6 +1,6 @@
 import insertJSandCSS from '../lib/insertJSandCSS';
 import buildOption from './util/buildOption.normal';
-import injector from './util/injector.normal';
+import {injector} from 'webpack-component-loader-smarty-parser';
 
 
 describe('test insertJSandCSS', function(){
