@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/nicholaslee119/webpack-component-loader#readme",
   "devDependencies": {
-    "babel-jest": "^20.0.3",
+    "babel-jest": "^21.2.0",
     "babel-preset-es2015": "^6.24.1",
     "coveralls": "^2.13.1",
     "eslint": "^4.7.1",
@@ -30,7 +30,7 @@
     "eslint-plugin-import": "^2.7.0",
     "fs-extra": "^4.0.2",
     "is-valid-path": "^0.1.1",
-    "jest": "^20.0.4",
+    "jest": "^21.2.0",
     "klaw-sync": "^3.0.0",
     "regenerator-runtime": "^0.11.0",
     "webpack": "^3.5.6",
