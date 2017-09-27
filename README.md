@@ -1,4 +1,5 @@
 [![NPM][npm]][npm-url]
+[![Tests][build]][build-url]
 [![Deps][deps]][deps-url]
 [![Coverage][cover]][cover-url]
 
@@ -78,3 +79,7 @@ you can see more detail under examples/
 
 [cover]: https://coveralls.io/repos/github/nicholaslee119/webpack-component-loader/badge.svg?branch=master
 [cover-url]: https://coveralls.io/github/nicholaslee119/webpack-component-loader?branch=master
+
+
+[build]: https://travis-ci.org/nicholaslee119/webpack-component-loader.svg?branch=master
+[build-url]: https://travis-ci.org/nicholaslee119/webpack-component-loader.svg?branch=master
