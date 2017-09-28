@@ -1,3 +1,7 @@
 language: node_js
 node_js:
   - "7"
+
+after_success:
+  - npm i coveralls
+  - cat ./test/coverage/lcov.info | coveralls
