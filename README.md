@@ -23,7 +23,12 @@ $npm test
 
 ```js
 
-function templateExtractor (source) {
+import {injector, extractor} from 'webpack-component-loader-smarty-parser';
+// or create the injector and extractor by yourself
+function injector (source) {
+  // inject the the bundled js/css to source template
+}
+function extractor (source) {
   // extract the including component path from the plain text of template
 }
 
@@ -32,9 +37,12 @@ module.exports = {
     rules: [
       {
         test   : /\.tpl?$/,
+        exclude: /(node_modules)/,
         loader : 'webpack-component-loader',
         query  : {
-          extractor : templateExtractor,
+          extractor : extractor,
+          injector : injector,
+          ext: '.tpl',
           srcPath : path.join(__dirname, '.'),
           builtJSPath : path.join(__dirname, '../assets/js'),
           builtCSSPath : path.join(__dirname, '../assets/css'),
