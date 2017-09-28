@@ -6,18 +6,18 @@
 # webpack-component-loader
 A webpack loader to componentify CSS/JS/HTML without framework
 
-## install
+## Install
 ```javascript
 
 $npm install webpack-component-loader
 
 ```
-## test
+## Test
 ```
 $npm test
 ```
 
-## usage
+## Usage
 
 ### webpack
 
@@ -65,7 +65,7 @@ module.exports = {
 ```
 you can see more detail under examples/
 
-# ecosystem
+# Ecosystem
 
 | Name | Status | Description |
 |:----:|:------:|:-----------:|
