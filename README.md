@@ -82,4 +82,4 @@ you can see more detail under examples/
 
 
 [build]: https://travis-ci.org/nicholaslee119/webpack-component-loader.svg?branch=master
-[build-url]: https://travis-ci.org/nicholaslee119/webpack-component-loader.svg?branch=master
+[build-url]: https://travis-ci.org/nicholaslee119/webpack-component-loader
