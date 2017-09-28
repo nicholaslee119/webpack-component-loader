@@ -46,25 +46,6 @@ module.exports = {
 }
 ```
 
-### example
-
-#### template
-
-```html
-<html>
-  <head>
-    {* css insertion *}
-  </head>
-  
-  <script>
-    {* JavaScript insertion *}
-  </script>
-
-</html>
-
-```
-you can see more detail under examples/
-
 ## Ecosystem
 
 | Name | Status | Description |
