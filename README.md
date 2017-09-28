@@ -38,7 +38,7 @@ module.exports = {
           srcPath : path.join(__dirname, '.'),
           builtJSPath : path.join(__dirname, '../assets/js'),
           builtCSSPath : path.join(__dirname, '../assets/css'),
-          builtTemplatePath : path.join(__dirname, '../assets//templates'),
+          builtTemplatePath : path.join(__dirname, '../assets/templates'),
         },
       },
     ],
@@ -64,6 +64,21 @@ module.exports = {
 
 ```
 you can see more detail under examples/
+
+# ecosystem
+
+| Name | Status | Description |
+|:----:|:------:|:-----------:|
+|[component-smarty-parser][smarty]|[![npm][smarty-badge]][smarty-npm]| Parser to extract and inject smarty template|
+|[component-pug-parser][pug]|[![npm][pug-badge]][pug-npm]| Parser to extract and inject pug template |
+
+[smarty]: https://github.com/nicholaslee119/webpack-component-loader-smarty-parser
+[smarty-badge]: https://img.shields.io/npm/v/webpack-component-loader-smarty-parser.svg
+[smarty-npm]: https://npmjs.com/package/posthtml-parser
+
+[pug]: https://github.com/nicholaslee119/webpack-component-loader-smarty-parser
+[pug-badge]: https://img.shields.io/npm/v/webpack-component-loader-smarty-parser.svg
+[pug-npm]: https://npmjs.com/package/webpack-component-loader-smarty-parser
 
 ## License
 
