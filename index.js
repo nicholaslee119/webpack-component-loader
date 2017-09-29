@@ -2,6 +2,7 @@ const loaderUtils = require('loader-utils');
 const core = require('./lib/core');
 
 module.exports = function (source) {
+  this.cacheable();
   const options = loaderUtils.getOptions(this);
   const extractor = options.extractor;
   const injector = options.injector;
