@@ -66,9 +66,11 @@ describe('test buildTemplate', function() {
         }
       ];
 
+    const errorPath = path.resolve(buildOptionNormal.srcPath, inexistentComponents[0].dir, inexistentComponents[0].name, `${inexistentComponents[0].name}${buildOptionNormal.ext}`);
+
     expect(()=>{
       buildTemplate(inexistentComponents, buildOptionNormal);
-    }).toThrowError(`[webpack-component-loader]: something wrong with building Template: ${inexistentComponents[0].name} is non existence`);
+    }).toThrowError(`[webpack-component-loader]: something wrong with building Template: ${errorPath} is non existence`);
   })
 
   it('should throw error when on-array component was passed in', function() {

@@ -15,11 +15,7 @@ describe('test in webpack', function () {
         }
       }
       expect(err).toBeNull();
-      const builtCSS = fsx.pathExistsSync(path.join(__dirname, './assets/css'));
-      const builtJS = fsx.pathExistsSync(path.join(__dirname, './assets/js'));
       const builtTemplates = fsx.pathExistsSync(path.join(__dirname, './assets/templates'));
-      expect(builtJS).toBeTruthy();
-      expect(builtCSS).toBeTruthy();
       expect(builtTemplates).toBeTruthy();
       fsx.removeSync(path.join(__dirname, './assets'));
       done();

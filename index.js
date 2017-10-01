@@ -12,6 +12,6 @@ module.exports = function (source) {
   const builtCSSPath = options.builtCSSPath;
   const builtTemplatePath = options.builtTemplatePath;
   const selfPath = this.resourcePath;
-  core(source, extractor, injector, ext, srcPath, builtJSPath, builtCSSPath, builtTemplatePath, selfPath);
-  return '';
+  const out = core(source, extractor, injector, ext, srcPath, builtJSPath, builtCSSPath, builtTemplatePath, selfPath);
+  return out;
 }
