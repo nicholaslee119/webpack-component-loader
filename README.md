@@ -33,11 +33,6 @@ function extractor (source) {
 
 module.exports = {
   entry: './test/fixture/entry.js',
-  resolveLoader: {
-    alias: {
-      'webpack-component-loader': path.join(__dirname, '../../index.js'),
-    },
-  },
   output: {
     path: path.resolve(__dirname, '..', 'assets', 'js'),
     filename: "bundle.js",
