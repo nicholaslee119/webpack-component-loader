@@ -6,6 +6,8 @@
 # webpack-component-loader
 A webpack loader to componentify CSS/JS/HTML without framework
 
+![illustration](https://github.com/nicholaslee119/webpack-component-loader/blob/improve-document/illustration.png)
+
 ## Install
 ```javascript
 
