@@ -27,10 +27,9 @@ $npm test
 
 import {extractor} from 'webpack-component-loader-smarty-parser';
 // or create the injector and extractor by yourself
-function injector (source) {
-  // inject the the bundled js/css to source template
+function extractor (source) {
+  // extract the including component path from the plain text of template
 }
-
 
 module.exports = {
   entry: './test/fixture/entry.js',
@@ -61,7 +60,7 @@ module.exports = {
   },
 }
 ```
-
+exdfff
 ## Ecosystem
 
 | Name | Status | Description |
