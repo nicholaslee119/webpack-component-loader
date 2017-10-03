@@ -1,6 +1,6 @@
 import path from 'path';
 
-import {injector, extractor} from 'webpack-component-loader-smarty-parser';
+import {extractor} from 'webpack-component-loader-smarty-parser';
 
 module.exports = {
   entry: './test/fixture/entry.js',
@@ -8,6 +8,11 @@ module.exports = {
     alias: {
       'webpack-component-loader': path.join(__dirname, '../../index.js'),
     },
+  },
+  output: {
+    path: path.resolve(__dirname, '..', 'assets', 'js'),
+    filename: "bundle.js",
+    publicPath: "/assets/",
   },
   module: {
     rules: [
@@ -17,12 +22,9 @@ module.exports = {
         loader : 'webpack-component-loader',
         query  : {
           extractor : extractor,
-          injector : injector,
           ext: '.tpl',
-          srcPath : path.join(__dirname, '.'),
-          builtJSPath : path.join(__dirname, '../assets/js'),
-          builtCSSPath : path.join(__dirname, '../assets/css'),
-          builtTemplatePath : path.join(__dirname, '../assets/templates'),
+          srcPath : path.resolve(__dirname, '.'),
+          builtTemplatePath : path.resolve(__dirname, '../assets/templates'),
         },
       },
     ],

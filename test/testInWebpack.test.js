@@ -15,13 +15,15 @@ describe('test in webpack', function () {
         }
       }
       expect(err).toBeNull();
-      const builtTemplates = fsx.pathExistsSync(path.join(__dirname, './assets/templates'));
+      const builtTemplates = fsx.pathExistsSync(path.resolve(__dirname, './assets/templates'));
+      const builtAssets = fsx.pathExistsSync(path.resolve(__dirname, './assets/js'));
       expect(builtTemplates).toBeTruthy();
-      fsx.removeSync(path.join(__dirname, './assets'));
+      expect(builtAssets).toBeTruthy();
+      fsx.removeSync(path.resolve(__dirname, './assets'));
       done();
     };
 
-    fsx.removeSync(path.join(__dirname, './assets'));
+    fsx.removeSync(path.resolve(__dirname, './assets'));
     webpack (config, cb );
   })
 })
