@@ -55,7 +55,7 @@ module.exports = {
   },
 }
 ```
-exdfff
+
 ## Ecosystem
 
 | Name | Status | Description |
