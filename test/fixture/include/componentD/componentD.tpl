@@ -1,1 +1,1 @@
-<p> I am component D</p>
+<p class="componentX"> I am component D</p>

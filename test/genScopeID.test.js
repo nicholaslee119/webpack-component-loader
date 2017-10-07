@@ -3,8 +3,8 @@ import components from './util/components.normal';
 
 describe('test genScopeID', function(){
   it('should pass with normal input', function () {
-    const newCompos = genScopeID(components);
-    expect(newCompos.every(component=>{
+    genScopeID(components);
+    expect(components.every(component=>{
       return component.hasOwnProperty('scopeID') && component.scopeID !== undefined;
     })).toBeTruthy();
   })

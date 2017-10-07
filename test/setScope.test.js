@@ -25,8 +25,8 @@ describe('test setScope', function(){
 
     expect(res).toMatch(
 `<div>
-    <p ${hashID} class="scopedClass">I am scopeCompo</p>
-    <p ${hashID} class="scopedClassS">I am scopeCompo</p>
+    <p data-s-${hashID} class="scopedClass">I am scopeCompo</p>
+    <p data-s-${hashID} class="scopedClassS">I am scopeCompo</p>
     <p>without className</p>
     <p class="withoutScoped">element with global namespace</p>
     <p>without className</p>
