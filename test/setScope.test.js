@@ -14,14 +14,9 @@ describe('test setScope', function(){
     <p>without className</p>
 </div>`
 
-
-
     const scopeNames = ['scopedClass', 'scopedClassS'];
     const hashID = 'data-compo-dr2343d';
     const res = setScope(normalTemplate, scopeNames, hashID);
-
-
-
 
     expect(res).toMatch(
 `<div>
