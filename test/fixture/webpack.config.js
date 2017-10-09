@@ -28,23 +28,32 @@ module.exports = {
               builtTemplatePath : path.join(__dirname, '../assets/templates'),
             },
           },
-          // ExtractTextPlugin.extract({
-          //   fallback: "style-loader",
-          //   use: 'css-loader'
-          // })
         ],
       },
       // {
-      //   test: /\.tpl$/,
-      //   enforce: "post",
+      //   test: /\.tpl?$/,
+      //   exclude: /(node_modules)/,
       //   use: ExtractTextPlugin.extract({
-      //     fallback: "style-loader",
-      //     use: 'css-loader'
+      //     // fallback: "style-loader",
+      //     use: [
+      //       {
+      //         loader: 'webpack-component-loader',
+      //         options: {
+      //           extractor : extractor,
+      //           injector : injector,
+      //           ext: '.tpl',
+      //           srcPath : path.join(__dirname, '.'),
+      //           builtJSPath : path.join(__dirname, '../assets/js'),
+      //           builtCSSPath : path.join(__dirname, '../assets/css'),
+      //           builtTemplatePath : path.join(__dirname, '../assets/templates'),
+      //         },
+      //       },
+      //     ]
       //   })
       // }
     ],
   },
   plugins: [
-    new ExtractTextPlugin("./styles.css"),
+    new ExtractTextPlugin("styles.css"),
   ]
 }
