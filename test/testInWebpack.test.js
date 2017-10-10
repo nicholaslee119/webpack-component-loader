@@ -19,7 +19,7 @@ describe('test in webpack', function () {
       const builtAssets = fsx.pathExistsSync(path.resolve(__dirname, './assets/js'));
       expect(builtTemplates).toBeTruthy();
       expect(builtAssets).toBeTruthy();
-      fsx.removeSync(path.resolve(__dirname, './assets'));
+      // fsx.removeSync(path.resolve(__dirname, './assets'));
       done();
     };
 
