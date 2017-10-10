@@ -43,16 +43,42 @@ module.exports = {
       {
         test   : /\.tpl?$/,
         exclude: /(node_modules)/,
-        loader : 'webpack-component-loader',
-        query  : {
-          extractor : extractor,
-          ext: '.tpl',
-          srcPath : path.resolve(__dirname, '.'),
-          builtTemplatePath : path.resolve(__dirname, '../assets/templates'),
-        },
+        use: [
+          {
+            loader: 'webpack-component-loader',
+            options: {
+              isCodeSplit: false,
+              extractor : extractor,
+              ext: '.tpl',
+              srcPath : path.join(__dirname, '.'),
+              builtJSPath : path.join(__dirname, '../assets/js'),
+              builtCSSPath : path.join(__dirname, '../assets/css'),
+              builtTemplatePath : path.join(__dirname, '../assets/templates'),
+            },
+          },
+        ],
       },
+      {
+        test: /\.css$/,
+        exclude: /(node_modules)/,
+        enforce: "post",
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      }
     ],
   },
+  plugins: [
+    new ExtractTextPlugin({
+      filename:  "css/[name].css",
+      // allChunks: true
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "commons",
+      filename: "js/commons.js",
+    })
+  ]
 }
 ```
 

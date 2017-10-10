@@ -13,7 +13,7 @@ describe('core test', function() {
   it('build should success', function(){
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
-    core(pageTpl, extractor, '.tpl',
+    core(pageTpl, true, extractor, '.tpl',
       path.join(__dirname, './fixture'),
       path.join(__dirname, './assetsCoreTest/templates'),
       path.join(__dirname, './fixture/pageC/pageC.tpl')
@@ -26,7 +26,7 @@ describe('core test', function() {
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     expect(() => {
-      core(pageTpl, extractor, '.tpl',
+      core(pageTpl, true, extractor, '.tpl',
         path.join(__dirname, './!!!!'),
         path.join(__dirname, './assetsCoreTest/templates'),
         '')
@@ -38,7 +38,7 @@ describe('core test', function() {
   it('unvalidate source should not be passed', function(){
     clearBuild();
     expect(()=>{
-      core('', extractor, '.tpl',
+      core('', true, extractor, '.tpl',
         path.join(__dirname, './fixture'),
         path.join(__dirname, './assetsCoreTest/templates'),
         path.join(__dirname, './fixture/pageC/pageC.tpl')
@@ -52,7 +52,7 @@ describe('core test', function() {
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     expect(()=>{
-      core(pageTpl, {}, '.tpl',
+      core(pageTpl, true, {}, '.tpl',
         path.join(__dirname, './fixture'),
         path.join(__dirname, './assetsCoreTest/templates'),
         path.join(__dirname, './fixture/pageC/pageC.tpl')
