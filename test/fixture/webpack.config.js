@@ -1,10 +1,19 @@
-import path from 'path';
+const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
 
 import {injector, extractor} from 'webpack-component-loader-smarty-parser';
 
 module.exports = {
-  entry: './test/fixture/entry.js',
+  entry: {
+    entryA: './test/fixture/entryA.js',
+    entryB: './test/fixture/entryB.js'
+  },
+  output: {
+    path: path.resolve(__dirname, "../assets/"),
+    filename     : 'js/[name].js',
+    chunkFilename: 'js/[name].chunk.js',
+  },
   resolveLoader: {
     alias: {
       'webpack-component-loader': path.join(__dirname, '../../index.js'),
@@ -42,6 +51,13 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin({
+      filename:  "css/[name].css",
+      // allChunks: true
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "commons",
+      filename: "js/commons.js",
+    })
   ]
 }
