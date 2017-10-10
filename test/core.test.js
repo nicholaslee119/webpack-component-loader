@@ -13,7 +13,7 @@ describe('core test', function() {
   it('build should success', function(){
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
-    core(pageTpl, extractor, injector, '.tpl',
+    core(pageTpl, true, extractor, injector, '.tpl',
       path.join(__dirname, './fixture'),
       path.join(__dirname, './assetsCoreTest/js'),
       path.join(__dirname, './assetsCoreTest/css'),
@@ -28,7 +28,7 @@ describe('core test', function() {
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     expect(() => {
-      core(pageTpl, extractor, injector, '.tpl',
+      core(pageTpl, true, extractor, injector, '.tpl',
         path.join(__dirname, './!!!!'),
         path.join(__dirname, '..../assetsCoreTest/js'),
         [1,24,22],
@@ -42,7 +42,7 @@ describe('core test', function() {
   it('unvalidate source should not be passed', function(){
     clearBuild();
     expect(()=>{
-      core('', extractor, injector, '.tpl',
+      core('', true, extractor, injector, '.tpl',
         path.join(__dirname, './fixture'),
         path.join(__dirname, './assetsCoreTest/js'),
         path.join(__dirname, './assetsCoreTest/css'),
@@ -58,7 +58,7 @@ describe('core test', function() {
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     expect(()=>{
-      core(pageTpl, {}, injector, '.tpl',
+      core(pageTpl, true, {}, injector, '.tpl',
         path.join(__dirname, './fixture'),
         path.join(__dirname, './assetsCoreTest/js'),
         path.join(__dirname, './assetsCoreTest/css'),
@@ -74,7 +74,7 @@ describe('core test', function() {
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     expect(()=>{
-      core(pageTpl, extractor, {}, '.tpl',
+      core(pageTpl, true, extractor, {}, '.tpl',
         path.join(__dirname, './fixture'),
         path.join(__dirname, './assetsCoreTest/js'),
         path.join(__dirname, './assetsCoreTest/css'),

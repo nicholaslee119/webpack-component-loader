@@ -28,6 +28,7 @@ module.exports = {
           {
             loader: 'webpack-component-loader',
             options: {
+              isCodeSplit: false,
               extractor : extractor,
               injector : injector,
               ext: '.tpl',
