@@ -2,7 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack');
 
-import {injector, extractor} from 'webpack-component-loader-smarty-parser';
+import {extractor} from 'webpack-component-loader-smarty-parser';
 
 module.exports = {
   entry: {

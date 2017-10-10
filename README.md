@@ -6,6 +6,8 @@
 # webpack-component-loader
 A webpack loader to componentify CSS/JS/HTML without framework
 
+![illustration](https://github.com/nicholaslee119/webpack-component-loader/blob/improve-document/illustration.png)
+
 ## Install
 ```javascript
 
@@ -23,17 +25,20 @@ $npm test
 
 ```js
 
-import {injector, extractor} from 'webpack-component-loader-smarty-parser';
+import {extractor} from 'webpack-component-loader-smarty-parser';
 // or create the injector and extractor by yourself
-function injector (source) {
-  // inject the the bundled js/css to source template
-}
 function extractor (source) {
   // extract the including component path from the plain text of template
 }
 
 module.exports = {
- module: {
+  entry: './test/fixture/entry.js',
+  output: {
+    path: path.resolve(__dirname, '..', 'assets', 'js'),
+    filename: "bundle.js",
+    publicPath: "/assets/",
+  },
+  module: {
     rules: [
       {
         test   : /\.tpl?$/,
@@ -41,12 +46,9 @@ module.exports = {
         loader : 'webpack-component-loader',
         query  : {
           extractor : extractor,
-          injector : injector,
           ext: '.tpl',
-          srcPath : path.join(__dirname, '.'),
-          builtJSPath : path.join(__dirname, '../assets/js'),
-          builtCSSPath : path.join(__dirname, '../assets/css'),
-          builtTemplatePath : path.join(__dirname, '../assets/templates'),
+          srcPath : path.resolve(__dirname, '.'),
+          builtTemplatePath : path.resolve(__dirname, '../assets/templates'),
         },
       },
     ],

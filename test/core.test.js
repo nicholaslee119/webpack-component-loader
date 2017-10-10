@@ -13,10 +13,8 @@ describe('core test', function() {
   it('build should success', function(){
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
-    core(pageTpl, true, extractor, injector, '.tpl',
+    core(pageTpl, true, extractor, '.tpl',
       path.join(__dirname, './fixture'),
-      path.join(__dirname, './assetsCoreTest/js'),
-      path.join(__dirname, './assetsCoreTest/css'),
       path.join(__dirname, './assetsCoreTest/templates'),
       path.join(__dirname, './fixture/pageC/pageC.tpl')
     )
@@ -28,10 +26,8 @@ describe('core test', function() {
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     expect(() => {
-      core(pageTpl, true, extractor, injector, '.tpl',
+      core(pageTpl, true, extractor, '.tpl',
         path.join(__dirname, './!!!!'),
-        path.join(__dirname, '..../assetsCoreTest/js'),
-        [1,24,22],
         path.join(__dirname, './assetsCoreTest/templates'),
         '')
     }).toThrowError(
@@ -42,10 +38,8 @@ describe('core test', function() {
   it('unvalidate source should not be passed', function(){
     clearBuild();
     expect(()=>{
-      core('', true, extractor, injector, '.tpl',
+      core('', true, extractor, '.tpl',
         path.join(__dirname, './fixture'),
-        path.join(__dirname, './assetsCoreTest/js'),
-        path.join(__dirname, './assetsCoreTest/css'),
         path.join(__dirname, './assetsCoreTest/templates'),
         path.join(__dirname, './fixture/pageC/pageC.tpl')
       );
@@ -58,31 +52,13 @@ describe('core test', function() {
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     expect(()=>{
-      core(pageTpl, true, {}, injector, '.tpl',
+      core(pageTpl, true, {}, '.tpl',
         path.join(__dirname, './fixture'),
-        path.join(__dirname, './assetsCoreTest/js'),
-        path.join(__dirname, './assetsCoreTest/css'),
         path.join(__dirname, './assetsCoreTest/templates'),
         path.join(__dirname, './fixture/pageC/pageC.tpl')
       )
     }).toThrowError(
-      '[webpack-component-loader]: something wrong with the extractor or injector'
-    );
-  });
-
-  it('unvalidate injector should not be passed', function(){
-    clearBuild();
-    const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
-    expect(()=>{
-      core(pageTpl, true, extractor, {}, '.tpl',
-        path.join(__dirname, './fixture'),
-        path.join(__dirname, './assetsCoreTest/js'),
-        path.join(__dirname, './assetsCoreTest/css'),
-        path.join(__dirname, './assetsCoreTest/templates'),
-        path.join(__dirname, './fixture/pageC/pageC.tpl')
-      )
-    }).toThrowError(
-      '[webpack-component-loader]: something wrong with the extractor or injector'
+      '[webpack-component-loader]: something wrong with the extractor'
     );
   });
 
