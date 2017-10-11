@@ -16,7 +16,7 @@ module.exports = {
   },
   resolveLoader: {
     alias: {
-      'webpack-component-loader': path.join(__dirname, '../../index.js'),
+      'webpack-component-loader': path.resolve(__dirname, '../../index.js'),
     },
   },
   module: {
@@ -31,10 +31,10 @@ module.exports = {
               isCodeSplit: false,
               extractor : extractor,
               ext: '.tpl',
-              srcPath : path.join(__dirname, '.'),
-              builtJSPath : path.join(__dirname, '../assets/js'),
-              builtCSSPath : path.join(__dirname, '../assets/css'),
-              builtTemplatePath : path.join(__dirname, '../assets/templates'),
+              srcPath : path.resolve(__dirname, '.'),
+              builtJSPath : path.resolve(__dirname, '../assets/js'),
+              builtCSSPath : path.resolve(__dirname, '../assets/css'),
+              builtTemplatePath : path.resolve(__dirname, '../assets/templates'),
             },
           },
         ],
