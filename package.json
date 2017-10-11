@@ -1,6 +1,6 @@
 {
   "name": "webpack-component-loader",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A webpack loader to componentify CSS/JS/HTML without framework",
   "main": "index.js",
   "scripts": {
