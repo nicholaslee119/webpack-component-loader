@@ -41,11 +41,6 @@ module.exports = {
     filename     : 'js/[name].js',
     chunkFilename: 'js/[name].chunk.js',
   },
-  resolveLoader: {
-    alias: {
-      'webpack-component-loader': path.resolve(__dirname, '../../index.js'),
-    },
-  },
   module: {
     rules: [
       {
