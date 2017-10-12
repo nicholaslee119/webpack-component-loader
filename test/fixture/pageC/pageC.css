@@ -1,7 +1,94 @@
-.pageC {
-    /* I come from C*/
+@charset "utf-8";
+
+/***************************************************
+* 見出し
+***************************************************/
+h2.sectionHeadRtop {
+    border-top: none;
+    border-bottom: none;
+    color: #333;
+    font-size: 13px;
+    padding-top: 11px;
+    padding-bottom: 10px;
+    background: #e4f1d7;
+    text-shadow: none;
 }
 
-.common {
-    /* common */
+h2.sectionHeadRtop span {
+    display: block;
+    border-left: 3px solid #61aa12;
+    padding-left: 5px;
+    margin-left: 5px;
+    border-radius: 1px;
+}
+
+/***************************************************
+* 都道府県選択
+***************************************************/
+.todofuken {
+    border-bottom: 1px solid #eee;
+}
+
+.todofuken .area {
+    display: block;
+    border-top: 1px solid #eee;
+}
+
+.todofuken .area .areaName {
+    display: block;
+    position: relative;
+    background: #fff;
+    padding: 15px 10px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.todofuken .area .areaName h3 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+.todofuken .area .areaName {
+    border-bottom: 3px solid #eee;
+    background: #f2f2f2;
+}
+
+.todofuken .area .pref li:first-child .prefecture {
+    border-top: none;
+}
+
+.todofuken .area .pref {
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    padding-left: 20px;
+}
+
+.todofuken .area .pref .prefecture {
+    display: block;
+    padding: 17px 17px 17px 10px;
+    font-size: 15px;
+    color: #333;
+    border-top: 1px solid #eee;
+    position: relative;
+}
+
+.todofuken .area .pref .prefecture.ui-hover {
+    background: #f9f9f9;
+}
+
+.todofuken .area .pref .prefecture:after {
+    display: block;
+    content: " ";
+    position: absolute;
+    width: 9px;
+    height: 17px;
+    background-image: url(/img/chintai/top/kensentaku/sprite/icon.png?id=CACHE_REVISION);
+    background-repeat: no-repeat;
+    background-size: 20px 57px;
+    -webkit-background-size: 20px 57px;
+    background-position: 0 0;
+    top: 50%;
+    margin-top: -8px;
+    right: 15px;
 }
