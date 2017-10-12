@@ -32,11 +32,19 @@ function extractor (source) {
 }
 
 module.exports = {
-  entry: './test/fixture/entry.js',
+  entry: {
+    entryA: './test/fixture/entryA.js',
+    entryB: './test/fixture/entryB.js'
+  },
   output: {
-    path: path.resolve(__dirname, '..', 'assets', 'js'),
-    filename: "bundle.js",
-    publicPath: "/assets/",
+    path: path.resolve(__dirname, "../assets/"),
+    filename     : 'js/[name].js',
+    chunkFilename: 'js/[name].chunk.js',
+  },
+  resolveLoader: {
+    alias: {
+      'webpack-component-loader': path.resolve(__dirname, '../../index.js'),
+    },
   },
   module: {
     rules: [
@@ -51,8 +59,6 @@ module.exports = {
               extractor : extractor,
               ext: '.tpl',
               srcPath : path.resolve(__dirname, '.'),
-              builtJSPath : path.resolve(__dirname, '../assets/js'),
-              builtCSSPath : path.resolve(__dirname, '../assets/css'),
               builtTemplatePath : path.resolve(__dirname, '../assets/templates'),
             },
           },

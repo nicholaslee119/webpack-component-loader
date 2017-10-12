@@ -32,8 +32,6 @@ module.exports = {
               extractor : extractor,
               ext: '.tpl',
               srcPath : path.resolve(__dirname, '.'),
-              builtJSPath : path.resolve(__dirname, '../assets/js'),
-              builtCSSPath : path.resolve(__dirname, '../assets/css'),
               builtTemplatePath : path.resolve(__dirname, '../assets/templates'),
             },
           },
