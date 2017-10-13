@@ -4,27 +4,29 @@ import setScope from "../lib/setScope";
 describe('test setScope', function(){
 
   it('should pass with normal', function(){
-
+    expect.assertions(1);
     const normalTemplate =
-`<div>
-    <p class="scopedClass">I am scopeCompo</p>
-    <p class="scopedClassS">I am scopeCompo</p>
-    <p>without className</p>
-    <p class="withoutScoped">element with global namespace</p>
-    <p>without className</p>
-</div>`
+    `<div>`+
+    `    <p class="scopedClass">I am scopeCompo</p>`+
+    `    <p class="scopedClassS">I am scopeCompo</p>`+
+    `    <p>without className</p>`+
+    `    <p class="withoutScoped">element with global namespace</p>`+
+    `    <p>without className</p>`+
+    `</div>`;
 
     const scopeNames = ['scopedClass', 'scopedClassS'];
     const hashID = 'data-compo-dr2343d';
-    const res = setScope(normalTemplate, scopeNames, hashID);
 
-    expect(res).toMatch(
-`<div>
-    <p data-s-${hashID} class="scopedClass">I am scopeCompo</p>
-    <p data-s-${hashID} class="scopedClassS">I am scopeCompo</p>
-    <p>without className</p>
-    <p class="withoutScoped">element with global namespace</p>
-    <p>without className</p>
-</div>`);
+    return setScope(normalTemplate, scopeNames, hashID).then((res) => {
+      expect(res).toMatch(
+        `<div>`+
+        `    <p class="scopedClass" data-s-${hashID}="">I am scopeCompo</p>`+
+        `    <p class="scopedClassS" data-s-${hashID}="">I am scopeCompo</p>`+
+        `    <p>without className</p>`+
+        `    <p class="withoutScoped">element with global namespace</p>`+
+        `    <p>without className</p>`+
+        `</div>`);
+    });
+
   })
 })
