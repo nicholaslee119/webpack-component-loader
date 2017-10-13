@@ -10,7 +10,7 @@ function clearBuild () {
 }
 
 describe('core test', function() {
-  it('build should success', function(){
+  it('build should success', function(cb){
     clearBuild();
     const pageTpl = fs.readFileSync(path.join(__dirname, './fixture/pageC/pageC.tpl'), 'utf8');
     core(pageTpl, true, extractor, '.tpl',
@@ -18,8 +18,14 @@ describe('core test', function() {
       path.join(__dirname, './assetsCoreTest/templates'),
       path.join(__dirname, './fixture/pageC/pageC.tpl')
     )
-    const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
-    expect(dirs).toBeTruthy();
+
+    setTimeout(()=>{
+      const dirs = fsx.pathExistsSync(path.join(__dirname, './assetsCoreTest'));
+      expect(dirs).toBeTruthy();
+      fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
+      cb();
+    }, 0)
+
   });
 
   it('unvalidate path should not be passed', function(){

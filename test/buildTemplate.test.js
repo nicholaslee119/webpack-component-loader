@@ -8,7 +8,7 @@ import buildOptionNormal from './util/buildOption.normal';
 
 describe('test buildTemplate', function() {
 
-  it('should built successfully', function() {
+  it('should built successfully', function(cb) {
     const normalComponents =
       [
         {
@@ -42,9 +42,14 @@ describe('test buildTemplate', function() {
       ];
     fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
     buildTemplate(normalComponents, buildOptionNormal);
-    const dirs = klawSync(path.join(__dirname, './assetsCoreTest'), {nodir: true});
-    fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
-    expect(dirs).toHaveLength(normalComponents.length);
+
+    setTimeout(()=>{
+      const dirs = klawSync(path.join(__dirname, './assetsCoreTest'), {nodir: true});
+      expect(dirs).toHaveLength(normalComponents.length);
+      fsx.removeSync(path.join(__dirname, './assetsCoreTest'));
+      cb();
+    }, 0)
+
   });
 
   it('should throw error when component is not exist', function() {
