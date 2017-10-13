@@ -98,6 +98,10 @@ module.exports = {
 [pug-badge]: https://img.shields.io/npm/v/webpack-component-loader-smarty-parser.svg
 [pug-npm]: https://npmjs.com/package/webpack-component-loader-smarty-parser
 
+## RoadMap
+
+[RoadMap](https://github.com/nicholaslee119/webpack-component-loader/projects/1)
+
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
