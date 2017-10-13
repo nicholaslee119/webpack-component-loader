@@ -6,8 +6,8 @@ import {extractor} from 'webpack-component-loader-smarty-parser';
 
 module.exports = {
   entry: {
-    entryA: './test/fixture/entryA.js',
-    entryB: './test/fixture/entryB.js'
+    entryA: path.resolve(__dirname, '../fixture/entryA.js'),
+    entryB: path.resolve(__dirname, '../fixture/entryB.js'),
   },
   output: {
     path: path.resolve(__dirname, "../assets/"),
@@ -31,7 +31,7 @@ module.exports = {
               isCodeSplit: false,
               extractor : extractor,
               ext: '.tpl',
-              srcPath : path.resolve(__dirname, '.'),
+              srcPath : path.resolve(__dirname, '../fixture'),
               builtTemplatePath : path.resolve(__dirname, '../assets/templates'),
             },
           },
@@ -40,22 +40,22 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /(node_modules)/,
-        enforce: "post",
+        enforce: 'post',
         use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
+          fallback: 'style-loader',
+          use: 'css-loader'
         })
       }
     ],
   },
   plugins: [
     new ExtractTextPlugin({
-      filename:  "css/[name].css",
+      filename:  'css/[name].css',
       // allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: "commons",
-      filename: "js/commons.js",
+      name: 'commons',
+      filename: 'js/commons.js',
     })
   ]
 }

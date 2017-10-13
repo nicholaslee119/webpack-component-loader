@@ -14,14 +14,16 @@ describe('test setScope', function(){
     `    <p>without className</p>`+
     `</div>`;
 
-    const scopeNames = ['scopedClass', 'scopedClassS'];
-    const hashID = 'data-compo-dr2343d';
+    const component = {
+      scopeNames: ['scopedClass', 'scopedClassS'],
+      scopeID: 'dr2343d'
+    };
 
-    return setScope(normalTemplate, scopeNames, hashID).then((res) => {
+    return setScope(normalTemplate, component).then((res) => {
       expect(res).toMatch(
         `<div>`+
-        `    <p class="scopedClass" data-s-${hashID}="">I am scopeCompo</p>`+
-        `    <p class="scopedClassS" data-s-${hashID}="">I am scopeCompo</p>`+
+        `    <p class="scopedClass" data-s-${component.scopeID}="">I am scopeCompo</p>`+
+        `    <p class="scopedClassS" data-s-${component.scopeID}="">I am scopeCompo</p>`+
         `    <p>without className</p>`+
         `    <p class="withoutScoped">element with global namespace</p>`+
         `    <p>without className</p>`+
