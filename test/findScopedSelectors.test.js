@@ -1,4 +1,4 @@
-import putScopeName from '../lib/putScopeName';
+import findScopedSelectors from '../lib/findScopedSelectors';
 import buildOption from './util/buildOption.normal';
 
 describe('test genScopeID', function(){
@@ -12,10 +12,10 @@ describe('test genScopeID', function(){
         "name": "scopeCompo"
       }
     ];
-    putScopeName(components, buildOption);
+    findScopedSelectors(components, buildOption);
     // TODD: should improve
     expect(components.every(component=>{
-      return component.hasOwnProperty('scopeNames') && component.scopeNames !== undefined;
+      return component.hasOwnProperty('scopedSelectors') && component.scopedSelectors !== undefined;
     })).toBeTruthy();
   })
 })

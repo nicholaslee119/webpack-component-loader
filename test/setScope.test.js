@@ -15,7 +15,7 @@ describe('test setScope', function(){
     `</div>`;
 
     const component = {
-      scopeNames: ['scopedClass', 'scopedClassS'],
+      scopedSelectors: ['scopedClass', 'scopedClassS'],
       scopeID: 'dr2343d'
     };
 
