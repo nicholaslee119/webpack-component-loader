@@ -35,7 +35,7 @@
     "regenerator-runtime": "^0.11.0",
     "style-loader": "^0.19.0",
     "webpack": "^3.5.6",
-    "webpack-component-loader-smarty-parser": "0.0.2"
+    "webpack-component-loader-smarty-parser": "0.0.3"
   },
   "jest": {
     "collectCoverage": true,
@@ -50,8 +50,6 @@
     "is-valid-path": "^0.1.1",
     "loader-utils": "^1.1.0",
     "postcss": "^6.0.13",
-    "postcss-selector-parser": "^2.2.3",
-    "posthtml": "^0.9.2",
-    "posthtml-extend-attrs": "^1.0.0"
+    "postcss-selector-parser": "^2.2.3"
   }
 }

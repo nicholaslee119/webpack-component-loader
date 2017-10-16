@@ -1,4 +1,4 @@
-import setScope from "../lib/setScope";
+import {addScopeAttr} from 'webpack-component-loader-smarty-parser';
 // import normalComponent from "./fixture/scopeCompo/scopeCompo.tpl";
 
 describe('test setScope', function(){
@@ -19,7 +19,7 @@ describe('test setScope', function(){
       scopeID: 'dr2343d'
     };
 
-    return setScope(normalTemplate, component).then((res) => {
+    return addScopeAttr(normalTemplate, component).then((res) => {
       expect(res).toMatch(
         `<div>`+
         `    <p class="scopedClass" data-s-${component.scopeID}="">I am scopeCompo</p>`+

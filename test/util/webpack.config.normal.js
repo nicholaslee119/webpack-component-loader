@@ -2,7 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack');
 
-import {extractor} from 'webpack-component-loader-smarty-parser';
+import {extractor, addScopeAttr} from 'webpack-component-loader-smarty-parser';
 
 module.exports = {
   entry: {
@@ -29,7 +29,8 @@ module.exports = {
             loader: 'webpack-component-loader',
             options: {
               isCodeSplit: false,
-              extractor : extractor,
+              extractor,
+              addScopeAttr,
               ext: '.tpl',
               srcPath : path.resolve(__dirname, '../fixture'),
               builtTemplatePath : path.resolve(__dirname, '../assets/templates'),

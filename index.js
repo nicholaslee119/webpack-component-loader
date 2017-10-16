@@ -30,7 +30,8 @@ module.exports = function loaderEntry(source) {
   const options = loaderUtils.getOptions(this);
 
   checkPath(options.srcPath, options.builtTemplatePath, this.resourcePath);
-  checkFunction(options.extractor);
+  checkFunction(options.extractor, options.addScopeAttr);
+  checkFunction(options.addScopeAttr);
   checkSource(source);
 
   const buildOption = {
@@ -39,6 +40,7 @@ module.exports = function loaderEntry(source) {
     builtTemplatePath: options.builtTemplatePath,
     isCodeSplit: options.isCodeSplit,
     extractor: options.extractor,
+    addScopeAttr: options.addScopeAttr,
     currentPagePath: this.resourcePath,
   }
 

@@ -1,8 +1,9 @@
 const path = require('path');
-const {extractor} = require('webpack-component-loader-smarty-parser');
+const {extractor, addScopeAttr} = require('webpack-component-loader-smarty-parser');
 
 export default {
   extractor,
+  addScopeAttr,
   ext: '.tpl',
   isCodeSplit: false,
   srcPath: path.join(__dirname, '../fixture'),

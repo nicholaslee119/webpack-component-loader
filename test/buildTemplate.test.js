@@ -1,4 +1,3 @@
-import fs from 'fs';
 import fsx from 'fs-extra';
 import path from 'path';
 import klawSync from 'klaw-sync';
