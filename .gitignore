@@ -2,3 +2,5 @@ node_modules
 test/assets
 test/assetsCoreTest
 test/coverage
+.idea
+jest_0

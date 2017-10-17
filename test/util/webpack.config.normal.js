@@ -1,16 +1,17 @@
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
-import {extractor, addScopeAttr} from 'webpack-component-loader-smarty-parser';
+const {extractor, addScopeAttr, injector} = require('webpack-component-loader-smarty-parser');
 
 module.exports = {
   entry: {
-    entryA: path.resolve(__dirname, '../fixture/entryA.js'),
-    entryB: path.resolve(__dirname, '../fixture/entryB.js'),
+    'pageC': path.resolve(__dirname, '../fixture/pageC.entry.js'),
+    'pageE': path.resolve(__dirname, '../fixture/pageE.entry.js'),
   },
   output: {
-    path: path.resolve(__dirname, "../assets/"),
+    path: path.resolve(__dirname, '../assets/'),
+    publicPath: '/assets/',
     filename     : 'js/[name].js',
     chunkFilename: 'js/[name].chunk.js',
   },
@@ -30,6 +31,7 @@ module.exports = {
             options: {
               isCodeSplit: false,
               extractor,
+              injector,
               addScopeAttr,
               ext: '.tpl',
               srcPath : path.resolve(__dirname, '../fixture'),

@@ -24,7 +24,7 @@ describe('test in webpack', function () {
       done();
     };
     fsx.removeSync(path.resolve(__dirname, './assets'));
-    webpack (config, cb );
+    webpack (config, cb);
   });
 
 

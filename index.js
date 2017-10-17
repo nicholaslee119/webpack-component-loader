@@ -32,6 +32,7 @@ module.exports = function loaderEntry(source) {
   checkPath(options.srcPath, options.builtTemplatePath, this.resourcePath);
   checkFunction(options.extractor, options.addScopeAttr);
   checkFunction(options.addScopeAttr);
+  checkFunction(options.injector);
   checkSource(source);
 
   const buildOption = {
@@ -40,9 +41,11 @@ module.exports = function loaderEntry(source) {
     builtTemplatePath: options.builtTemplatePath,
     isCodeSplit: options.isCodeSplit,
     extractor: options.extractor,
+    injector: options.injector,
     addScopeAttr: options.addScopeAttr,
     currentPagePath: this.resourcePath,
-  }
+    publicPath: this.options.output.publicPath || '',
+  };
 
   return core(source, buildOption);
 };
