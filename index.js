@@ -39,6 +39,7 @@ module.exports = function loaderEntry(source) {
     ext: options.ext,
     srcPath: options.srcPath,
     builtTemplatePath: options.builtTemplatePath,
+    builtAssetsPublicPath: options.builtAssetsPublicPath,
     isCodeSplit: options.isCodeSplit,
     extractor: options.extractor,
     injector: options.injector,
