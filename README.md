@@ -25,10 +25,17 @@ $npm test
 
 ```js
 
-import {extractor} from 'webpack-component-loader-smarty-parser';
-// or create the injector and extractor by yourself
-function extractor (source) {
+import {extractor, injector, addScopeAttr} from 'webpack-component-loader-smarty-parser';
+// or create the injector, extractor or addScopeAttr by yourself
+function extractor (template) {
   // extract the including component path from the plain text of template
+}
+function injector (template, component, buildOption) {
+  // inject the url of assets to template
+}
+function addScopeAttr (template, component) {
+  // add data-s-[hash] to tags in template for scope css, and must return Promise type
+  return new Promise();
 }
 
 module.exports = {
@@ -51,7 +58,9 @@ module.exports = {
             loader: 'webpack-component-loader',
             options: {
               isCodeSplit: false,
-              extractor : extractor,
+              extractor,
+              injector,
+              addScopeAttr,
               ext: '.tpl',
               srcPath : path.resolve(__dirname, '.'),
               builtTemplatePath : path.resolve(__dirname, '../assets/templates'),
