@@ -10,7 +10,10 @@ A webpack loader to componentify CSS/JS/HTML without framework
 
 ## Articles
 
-Chinese: [如何在没有前端框架的情况下实现组件化](https://juejin.im/post/59df7e76f265da431e15c4fe)
+简体中文: [如何在没有前端框架的情况下实现组件化](https://juejin.im/post/59df7e76f265da431e15c4fe)
+
+日本語: [Frontend Framework無しでComponent化を導入する](https://qiita.com/nicholaslee/items/6c7643b9e6be12531ac3)
+
 
 ## Install
 ```javascript
