@@ -8,6 +8,10 @@ A webpack loader to componentify CSS/JS/HTML without framework
 
 ![illustration](https://github.com/nicholaslee119/webpack-component-loader/blob/improve-document/illustration.png)
 
+## Articles
+
+Chinese: [如何在没有前端框架的情况下实现组件化](https://juejin.im/post/59df7e76f265da431e15c4fe)
+
 ## Install
 ```javascript
 
