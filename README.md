@@ -3,7 +3,7 @@
 [![Deps][deps]][deps-url]
 [![Coverage][cover]][cover-url]
 
-# webpack-component-loader
+# ![logo](https://github.com/nicholaslee119/webpack-component-loader/blob/master/Logo.png)
 A webpack loader to componentify CSS/JS/HTML without framework
 
 ![illustration](https://github.com/nicholaslee119/webpack-component-loader/blob/improve-document/illustration.png)
