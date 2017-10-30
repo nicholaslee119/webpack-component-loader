@@ -20,6 +20,9 @@ A webpack loader to componentify CSS/JS/HTML without framework
 
 日本語: [Frontend Framework無しでComponent化を導入する](https://qiita.com/nicholaslee/items/6c7643b9e6be12531ac3)
 
+## highlight features
+
+1. Scoped CSS
 
 ## Install
 ```javascript
