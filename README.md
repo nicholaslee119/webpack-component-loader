@@ -117,7 +117,7 @@ module.exports = {
 
 [smarty]: https://github.com/nicholaslee119/webpack-component-loader-smarty-parser
 [smarty-badge]: https://img.shields.io/npm/v/webpack-component-loader-smarty-parser.svg
-[smarty-npm]: https://npmjs.com/package/posthtml-parser
+[smarty-npm]: https://npmjs.com/package/webpack-component-loader-smarty-parser
 
 [pug]: https://github.com/nicholaslee119/webpack-component-loader-smarty-parser
 [pug-badge]: https://img.shields.io/npm/v/webpack-component-loader-smarty-parser.svg
