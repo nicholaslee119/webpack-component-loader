@@ -4,3 +4,4 @@ test/assetsCoreTest
 test/coverage
 .idea
 jest_0
+package-lock.json
